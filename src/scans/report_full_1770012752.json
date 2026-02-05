@@ -1,0 +1,60 @@
+{
+    "start_time": "2026-02-02T11:42:26.489444",
+    "target": "alwaysdata.com",
+    "steps": {
+        "step_1": {
+            "status": "COMPLETED",
+            "message": "Target validated: alwaysdata.com (Reachable: True)",
+            "data": {
+                "target": "alwaysdata.com"
+            }
+        },
+        "step_2": {
+            "status": "COMPLETED",
+            "message": "Found 0 subdomains and 0 open ports.",
+            "data": {
+                "subdomains": [],
+                "open_ports": []
+            }
+        },
+        "step_3": {
+            "status": "COMPLETED",
+            "message": "Scan finished. Found 0 potential issues.",
+            "data": {
+                "error": "Nuclei not installed or not found in PATH"
+            }
+        },
+        "step_4": {
+            "status": "COMPLETED",
+            "message": "AI Prioritized 0 critical/high risks.",
+            "data": {
+                "prioritized": []
+            }
+        },
+        "step_5": {
+            "status": "COMPLETED",
+            "message": "Successfully verified 0 vulnerabilities as True Positives.",
+            "data": {
+                "verified": []
+            }
+        },
+        "step_6": {
+            "status": "COMPLETED",
+            "message": "LLM confirmed results. 0 False Positives detected in verified set.",
+            "data": {
+                "status": "Cleaned"
+            }
+        },
+        "step_7": {
+            "status": "IN_PROGRESS",
+            "message": "Generating professional VAPT report...",
+            "data": null
+        }
+    },
+    "end_time": "2026-02-02T11:42:32.521860",
+    "summary": {
+        "target": "alwaysdata.com",
+        "vulns_found": 0,
+        "verified": 0
+    }
+}

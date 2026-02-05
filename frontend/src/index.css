@@ -1,0 +1,203 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Simplified Dark Palette (Performance Optimized) */
+  --bg-dark: #0f172a;
+  --bg-card: rgba(30, 41, 59, 0.95);
+  /* Higher opacity, less blur reliance */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  /* Simpler gradient */
+  --text-main: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --success-color: #10b981;
+  --error-color: #f43f5e;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  /* Static gradient instead of complex radial mesh */
+  background: linear-gradient(to bottom right, #0f172a, #1e1b4b);
+  color: var(--text-main);
+  padding-top: 60px;
+}
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Optimized Card */
+.card {
+  background: var(--bg-card);
+  /* Reduced blur for performance */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+}
+
+/* Add a top gradient border effect */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* Modern Input */
+.input-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  flex-grow: 1;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+/* Optimized Button */
+button {
+  border-radius: 12px;
+  border: none;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: var(--primary-gradient);
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-transform: uppercase;
+  /* Remove shadow transition to improve performance */
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.status-idle {
+  background: rgba(148, 163, 184, 0.1);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.status-scanning {
+  background: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  /* Removed infinite pulse animation for performance */
+}
+
+.status-ready {
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.status-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Logs Area */
+.logs-area {
+  background: #0b1120;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 10px;
+  text-align: left;
+  min-height: 250px;
+  max-height: 500px;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+.log-entry {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: #64748b;
+  margin-right: 15px;
+  font-size: 0.8em;
+  min-width: 80px;
+}

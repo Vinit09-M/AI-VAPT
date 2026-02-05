@@ -1,0 +1,4 @@
+- Nikto v2.5.0/
++ Target Host: reva.edu.in
++ Target Port: 80
++ GET Unable to connect to reva.edu.in:80.
